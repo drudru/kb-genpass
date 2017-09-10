@@ -12,7 +12,7 @@ int main(int argc, char * const argv[])
 {
     validate_args(argc, argv);
 
-    // Render to /dev/fb1
+    // Open hardware random number generator
     //
     int rngfd = open("/dev/hwrng", O_RDONLY);
     if (rngfd == -1)
@@ -72,7 +72,6 @@ void arg_help()
 
 void validate_args(int argc, char * const argv[])
 {
-    // cmd mesg -- next in chain
     if (argc != 2)
         arg_help();
 
